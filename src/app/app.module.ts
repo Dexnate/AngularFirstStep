@@ -9,25 +9,28 @@ import { ContactComponent } from './contact/contact.component';
 import {AboutService} from '../services/about.service';
 import {RouterModule, Routes} from '@angular/router';
 import { GalleryComponent } from './gallery/gallery.component';
+import {HttpModule} from '@angular/http';
 
 //Déclaration des routes à utiliser
 const routes:Routes = [
   {path:'about', component:AboutComponent},
   {path:'contacts', component:ContactComponent},
-  {path:'', redirectTo:'/about', pathMatch:'full'}
+  {path:'gallery', component:GalleryComponent},
+  {path:' ', redirectTo:'/about', pathMatch:'full'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    ContactCompone,
-    GalleryComponentnt
+    ContactComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpModule
   ],
   providers: [AboutService],
   bootstrap: [AppComponent]
