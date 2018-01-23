@@ -1,6 +1,27 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">Gallery Component</div>
-  <div class="panel-body">
-    Gallery
+<p></p>
+<div class="container">
+  <div class="card card-body">
+   <div class="card-header">Gallery Component</div>
+    <div class="card-body">
+      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+        <div class="form-group">
+          <label>Mot clé:</label>
+          <input type="text" name="motCle" ngModel required>
+          <button type="submit" class="btn btn-primary">Chercher</button>
+        </div>
+      </form>
+      <div>
+
+       <div *ngIf="pagePhotos">
+        <div class="card" *ngFor="let p of pagePhotos.hits">
+          <div class="card-header"> {{p.tags}} </div>
+          <div class="card-body">
+            <img src="{{p.previewURL}}">
+          </div>
+        </div>
+       </div>
+
+      </div>
+   </div>
   </div>
 </div>
